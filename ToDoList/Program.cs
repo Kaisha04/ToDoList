@@ -6,4 +6,4 @@ Menu menu = new Menu(files,notes);
 menu.PreloadData();
 menu.Run();
 Console.Clear();
-Console.WriteLine("Програму завершено");
+Console.WriteLine("Finished");

@@ -13,8 +13,8 @@ public class Input
             {
                 return result;
             }
-            if(string.IsNullOrWhiteSpace(result) || result == "") Console.WriteLine("Ви нічого не ввели");
-            else if(result.Length > lengthOfText)Console.WriteLine("Ви поза діапазоном");
+            if(string.IsNullOrWhiteSpace(result) || result == "") Console.WriteLine("Input cannot be empty.");
+            else if(result.Length > lengthOfText)Console.WriteLine("Out of range.");
         } while (true);
     }
     public static int GetNumber(string textForWhat,int min, int max)
@@ -29,8 +29,8 @@ public class Input
                 if (number >= min && number <= max)
                 {
                     return number;
-                } else Console.WriteLine("Поза діапазоном");
-            }else Console.WriteLine("Невірний ввід");
+                } else Console.WriteLine("Out of range.");
+            }else Console.WriteLine("Wrong input.");
             
         } while (true);
     }
@@ -39,7 +39,7 @@ public class Input
     {
         do
         {
-            Console.Write("Оберіть варіант: ");
+            Console.Write("Select an option: ");
             ConsoleKeyInfo key = Console.ReadKey();
             switch (key.Key)
             {
@@ -49,7 +49,7 @@ public class Input
             }
 
             Console.WriteLine();
-            Console.WriteLine("Спробуй ще раз");
+            Console.WriteLine("Try again");
         } while (true);
     }
     public static NoteOption GetNoteOption()
@@ -57,7 +57,7 @@ public class Input
         do
         {
             Console.Write  
-                 ("Оберіть варіант: ");
+                 ("Select an option: ");
             ConsoleKeyInfo key = Console.ReadKey();
             switch (key.Key)
             {
@@ -67,7 +67,7 @@ public class Input
                 case ConsoleKey.D4: return NoteOption.Exit;
             }
             
-            Console.WriteLine("Спробуй ще раз");
+            Console.WriteLine("Try again");
         } while (true);
     }
 
