@@ -4,7 +4,7 @@ namespace ToDoList;
 
 public class FilesStorage
 {
-   private readonly string _directoryPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ToDoList");//Сам ставить слеші в залежності від ОС
+    static readonly string _directoryPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ToDoList");//Сам ставить слеші залежно від ОС
    
 
     public FilesStorage()
