@@ -1,19 +1,22 @@
-﻿namespace ToDoList;
+﻿using System.Text.Json.Serialization;
+
+namespace ToDoList;
 
 public class Note
 {
-    public DateTime FirstCreate { get; set; }
-    public DateTime? LastUpdate { get; set; }
-    public string? NoteName { get; set; }
-    public string? NoteText { get; set; }
+    [JsonInclude] //Attribute to include private property in JSON serialization
+    public DateTime FirstCreate { get; private set; }
+    [JsonInclude]
+    public DateTime? LastUpdate { get; private set; }
+    [JsonInclude]
+    public string? NoteName { get; private set; }
+    [JsonInclude]
+    public string? NoteText { get; private set; }
     
-    /// <summary>
-    ///Конструктор для json.serializer
-    /// </summary>
     public Note(){}
 
     /// <summary>
-    /// Конструктор для створення нотатки
+    /// Constructor for create a new note
     /// </summary>
     /// <param name="nameOfNote"></param>
     /// <param name="noteText"></param>
@@ -41,11 +44,11 @@ public class Note
     }
     public override string ToString()
     {
-       return string.Format($"Час створення або редагування: {LastUpdate ?? FirstCreate}\nНазва нотатки: {NoteName}");
+        return $"Last Modified: {LastUpdate ?? FirstCreate}\nTitle: {NoteName}";
     }
 
     public void DisplayNote()
     {
-        Console.WriteLine($"Дата створення: {FirstCreate}\nДата редагування: {LastUpdate?.ToString() ?? "Відсутня"}\nНазва нотатки: {NoteName}\nТекст нотатки: {NoteText}");
+        Console.WriteLine($"Created: {FirstCreate}\nLast Modified: {LastUpdate?.ToString() ?? "Never"}\nTitle: {NoteName}\nContent: {NoteText}");
     }
 }

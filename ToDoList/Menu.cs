@@ -4,7 +4,7 @@ public class Menu
 {
     private readonly FilesStorage _files;
     private List<Note>  _notes;
-
+    
     public Menu(FilesStorage files, List<Note> notes)
     {
         _files = files;
@@ -12,7 +12,7 @@ public class Menu
     }
     public void PreloadData()
     {
-        //Перевірка даних при створенні екземпляру
+        //Check data on instance creation
         _notes = _files.GetNotes();
         if (_notes.Count == 0)
         {
@@ -54,7 +54,7 @@ public class Menu
     {
         Console.WriteLine();
         Console.WriteLine("Creating new note...");
-        _notes.Add(new Note(Input.GetText("Input note name",20),Input.GetText("Input note text",50)));
+        _notes.Add(new Note(Input.GetText("Input note tittle",20),Input.GetText("Input note content",50)));
         _files.SaveNotes(_notes);
         Console.WriteLine("Data saved");
     }
@@ -82,26 +82,26 @@ public class Menu
         int index = Input.GetNumber("Select a note",1, _notes.Count);
         index -= 1;
         Console.Clear();
-        _notes[index].DisplayNote(); ///index - 1 for length of collection
+        _notes[index].DisplayNote(); //index - 1 for length of collection
         ActionToNote(index);
     }
 
     public void ActionToNote(int index)
     {
-        Console.WriteLine("\n1 - Change name" +
-                          "\n2 - Change text" +
+        Console.WriteLine("\n1 - Change tittle" +
+                          "\n2 - Change content" +
                           "\n3 - Delete"
                           +"\n4 - Back");
         switch (Input.GetNoteOption())
         {
-            case Input.NoteOption.RenameMain:Console.Clear(); Console.WriteLine("Note name");
-                _notes[index].ChangeName(Input.GetText("Input new name",20));
-                Console.WriteLine("Name changed");
+            case Input.NoteOption.RenameMain:Console.Clear(); Console.WriteLine("Note tittle");
+                _notes[index].ChangeName(Input.GetText("Input new tittle",20));
+                Console.WriteLine("Tittle changed");
                 _files.SaveNotes(_notes);
                 break;
             
-            case Input.NoteOption.RenameNote: Console.Clear(); Console.WriteLine("Note text");
-                _notes[index].ChangeText(Input.GetText("Input new note text",50));
+            case Input.NoteOption.RenameNote: Console.Clear(); Console.WriteLine("Note content");
+                _notes[index].ChangeText(Input.GetText("Input new note content",50));
                 _files.SaveNotes(_notes);
                 break;
             

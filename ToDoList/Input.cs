@@ -1,6 +1,6 @@
 ﻿namespace ToDoList;
 
-public class Input
+public static class Input
 {
     public static string GetText(string textForWhat,int lengthOfText)
     {
