@@ -1,4 +1,4 @@
-Educational Note-Taking Console App (For learn)
+Educational Note-Taking Console App
 I built this console application to practice C# and file management. It’s a simple tool where you can create notes with titles and text. The system automatically logs when a note was created and last edited.
 
 If it's your first time running the app, it’ll guide you to create your first note before opening the main menu. From the menu, you can manage your library: view all entries, update their details, or remove them.
