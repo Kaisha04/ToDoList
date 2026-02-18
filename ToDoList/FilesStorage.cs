@@ -19,7 +19,7 @@ public class FilesStorage
     }
 
     /// <summary>
-    /// Метод для завантаження та повернення колекції
+    /// method to load and return collection
     /// </summary>
     /// <returns></returns>
     public List<Note> GetNotes()
@@ -45,7 +45,7 @@ public class FilesStorage
     
     
     /// <summary>
-    /// Для збереження даних
+    /// method for data persistence
     /// </summary>
     /// <param name="list"></param>
     public void SaveNotes(List<Note> list)
