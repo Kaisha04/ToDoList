@@ -13,7 +13,7 @@ public static class Input
             {
                 return result;
             }
-            if(string.IsNullOrWhiteSpace(result) || result == "") Console.WriteLine("Input cannot be empty.");
+            if(string.IsNullOrWhiteSpace(result)) Console.WriteLine("Input cannot be empty.");
             else if(result.Length > lengthOfText)Console.WriteLine("Out of range.");
         } while (true);
     }
@@ -41,6 +41,7 @@ public static class Input
         {
             Console.Write("Select an option: ");
             ConsoleKeyInfo key = Console.ReadKey();
+            Console.WriteLine();
             switch (key.Key)
             {
                 case ConsoleKey.D1: return MenuOption.Add;
@@ -59,12 +60,13 @@ public static class Input
             Console.Write  
                  ("Select an option: ");
             ConsoleKeyInfo key = Console.ReadKey();
+            Console.WriteLine();
             switch (key.Key)
             {
-                case ConsoleKey.D1: return NoteOption.RenameMain;
-                case ConsoleKey.D2: return NoteOption.RenameNote;
+                case ConsoleKey.D1: return NoteOption.RenameTitle;
+                case ConsoleKey.D2: return NoteOption.RenameContent;
                 case ConsoleKey.D3: return NoteOption.Delete;
-                case ConsoleKey.D4: return NoteOption.Exit;
+                case ConsoleKey.D4: return NoteOption.Back;
             }
             
             Console.WriteLine("Try again");
@@ -79,9 +81,9 @@ public static class Input
     }
     public enum NoteOption : byte
     {
-        RenameMain = 1,
-        RenameNote,
+        RenameTitle = 1,
+        RenameContent,
         Delete,
-        Exit   
+        Back   
     }
 }

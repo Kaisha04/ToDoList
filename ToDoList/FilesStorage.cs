@@ -4,17 +4,17 @@ namespace ToDoList;
 
 public class FilesStorage
 {
-    static readonly string _directoryPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ToDoList");//Сам ставить слеші залежно від ОС
+    static readonly string directoryPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "ToDoList");//Сам ставить слеші залежно від ОС
    
 
     public FilesStorage()
     {
-        if (!Directory.Exists(_directoryPath))
+        if (!Directory.Exists(directoryPath))
         {
-            Directory.CreateDirectory(_directoryPath);
-        }if(!File.Exists(_directoryPath + @"\ToDoList.json"))
+            Directory.CreateDirectory(directoryPath);
+        }if(!File.Exists(directoryPath + @"\ToDoList.json"))
         {
-            File.Create(_directoryPath + @"\ToDoList.json").Close();
+            File.Create(directoryPath + @"\ToDoList.json").Close();
         } 
     }
 
@@ -24,7 +24,7 @@ public class FilesStorage
     /// <returns></returns>
     public List<Note> GetNotes()
     {
-        string data = File.ReadAllText(_directoryPath + @"\ToDoList.json");
+        string data = File.ReadAllText(directoryPath + @"\ToDoList.json");
         if (!string.IsNullOrEmpty(data) && !string.IsNullOrWhiteSpace(data))
         {
             try
@@ -51,6 +51,6 @@ public class FilesStorage
     public void SaveNotes(List<Note> list)
     {
         string data = JsonSerializer.Serialize(list);
-        File.WriteAllText(_directoryPath + @"\ToDoList.json", data);
+        File.WriteAllText(directoryPath + @"\ToDoList.json", data);
     }
 }

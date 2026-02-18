@@ -1,8 +1,7 @@
 ﻿using ToDoList;
-List<Note> notes = new List<Note>();
 FilesStorage files = new FilesStorage();
 
-Menu menu = new Menu(files,notes);
+Menu menu = new Menu(files);
 menu.PreloadData();
 menu.Run();
 Console.Clear();
